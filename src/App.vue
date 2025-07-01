@@ -29,7 +29,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style global>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
@@ -38,7 +38,9 @@ body {
   background: linear-gradient(to bottom, #555, #999);
   background-attachment: fixed;
 }
+</style>
 
+<style scoped>
 main {
   margin: 0 auto;
   padding: 30px;
@@ -52,7 +54,7 @@ header {
   margin: 0 auto;
 }
 ul {
-  padding: 30px;
+  padding: 3px;
   display: flex;
 }
 .nav-item {

@@ -2,6 +2,7 @@
   <div class="content">
     <button class="add-to-cart" @click="addToCart()">Add to Cart</button>
     <div class="top-row">
+      <!--<div :class="[saleBorderClass, 'top', 'part']">-->
       <div class="top part">
         <div class="robot-name">
           {{ selectedRobot.head.title }}&nbsp;<span v-if="selectedRobot.head.onSale" class="sale"
@@ -89,6 +90,8 @@ const selectedRobot = computed(() => ({
   base: availableParts.bases[selectedBaseIndex.value],
 }));
 
+const headBorderColor = computed(() => (selectedRobot.value.head.onSale ? 'red' : '#aaa'));
+
 const addToCart = () => {
   const robot = selectedRobot.value;
   const cost =
@@ -154,15 +157,22 @@ const selectNextBase = () => {
 // #endregion
 </script>
 
-<style>
+<style lang="scss" scoped>
 .part {
   position: relative;
   width: 165px;
   height: 165px;
   border: 3px solid #aaa;
 }
-.part img {
-  width: 165px;
+
+.top.part {
+  border: 3px solid v-bind(headBorderColor);
+}
+
+.part {
+  img {
+    width: 165px;
+  }
 }
 .top-row {
   display: flex;
