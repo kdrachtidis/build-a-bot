@@ -5,6 +5,7 @@
         <li class="nav-item">
           <img class="logo" src="./assets/build-a-bot-logo.png" alt="logo" />Build a bot
         </li>
+        <li>User: {{ userName }}</li>
       </ul>
     </nav>
   </header>
@@ -14,19 +15,14 @@
   </main>
 </template>
 
-<script>
+<script setup>
+import { ref, provide } from 'vue';
 // import HomePage from './home/HomePage.vue'
 import RobotBuilder from './build/RobotBuilder.vue';
 // import ProductSearch from './search/ProductSearch.vue';
 
-export default {
-  name: 'App',
-  components: {
-    // HomePage,
-    RobotBuilder,
-    // ProductSearch,
-  },
-};
+const userName = ref('Jim');
+provide('userName', userName);
 </script>
 
 <style global>
