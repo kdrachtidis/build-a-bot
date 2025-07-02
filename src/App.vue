@@ -3,7 +3,15 @@
     <nav>
       <ul>
         <li class="nav-item">
-          <img class="logo" src="./assets/build-a-bot-logo.png" alt="logo" />Build a bot
+          <router-link class="nav-link" :to="{ name: 'Home' }" active-class="home-active">
+            <img class="logo" src="./assets/build-a-bot-logo.png" alt="logo" />Build a bot
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link" :to="{ name: 'Build' }">Build </router-link>
+        </li>
+         <li class="nav-item">
+          <router-link class="nav-link" :to="{ name: 'Search' }">Search </router-link>
         </li>
         <li>User: {{ userName }}</li>
       </ul>
@@ -11,15 +19,12 @@
   </header>
   <main>
     <!--<HomePage msg="You did it!" />-->
-    <RobotBuilder />
+    <router-view />
   </main>
 </template>
 
 <script setup>
 import { ref, provide } from 'vue';
-// import HomePage from './home/HomePage.vue'
-import RobotBuilder from './build/RobotBuilder.vue';
-// import ProductSearch from './search/ProductSearch.vue';
 
 const userName = ref('Jim');
 provide('userName', userName);
@@ -53,6 +58,10 @@ ul {
   padding: 3px;
   display: flex;
 }
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+}
 .nav-item {
   display: inline-block;
   font-size: 22px;
@@ -62,5 +71,13 @@ ul {
 .logo {
   vertical-align: middle;
   height: 30px;
+}
+
+.router-link-active {
+  color: white;
+}
+.home-active {
+  color: #fff;
+  text-shadow: 2px 2px black;
 }
 </style>
