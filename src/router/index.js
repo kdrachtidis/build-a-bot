@@ -3,6 +3,7 @@ import PartInfo from '../parts/PartInfo.vue';
 import HomePage from '../home/HomePage.vue';
 import RobotBuilder from '../build/RobotBuilder.vue';
 import ProductSearch from '../search/ProductSearch.vue';
+import ShoppingCart from '../cart/ShoppingCart.vue';
 
 export default createRouter({
   linkActiveClass: 'router-link-active',
@@ -28,6 +29,11 @@ export default createRouter({
       name: 'Parts',
       component: PartInfo,
       props: true,
+    },
+    {
+      path: '/cart',
+      name: 'Cart',
+      component: ShoppingCart,
     },
   ],
 });

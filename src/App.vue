@@ -13,6 +13,9 @@
          <li class="nav-item">
           <router-link class="nav-link" :to="{ name: 'Search' }">Search </router-link>
         </li>
+         <li class="nav-item cart">
+          <router-link class="nav-link" to="/cart">Cart </router-link>
+        </li>
         <li>User: {{ userName }}</li>
       </ul>
     </nav>
@@ -67,6 +70,11 @@ ul {
   font-size: 22px;
   padding: 5px 10px;
   border-right: 1px solid #bbb;
+}
+.nav-item.cart{
+  position: relative;
+  margin-left: auto;
+  border-right: none;
 }
 .logo {
   vertical-align: middle;
