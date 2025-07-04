@@ -5,12 +5,20 @@
       :to="{
         name: 'Parts',
         params: { partType: selectedPart.type, id: selectedPart.id },
-      }">
+      }"
+    >
       <img :src="selectedPart.imageUrl" alt="part"
     /></router-link>
     <button @click="selectPreviousPart()" class="prev-selector"></button>
     <button @click="selectNextPart()" class="next-selector"></button>
-    <span class="sale" v-show="selectedPart.onSale">Sale!</span>
+    <button
+      v-pin="{ bottom: pinPadding, right: pinPadding }"
+      @click="pinPadding = '30px'"
+      class="sale"
+      v-show="selectedPart.onSale"
+    >
+      Sale!
+    </button>
   </div>
 </template>
 
@@ -20,6 +28,8 @@ import {
 } from 'vue';
 
 const userName = inject('userName');
+
+const pinPadding = ref('10px');
 
 const props = defineProps({
   parts: { type: Array, required: true },
@@ -70,9 +80,6 @@ const selectPreviousPart = () => {
 }
 
 .sale {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
   color: white;
   background-color: red;
   padding: 3px;
